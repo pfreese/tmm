@@ -8,7 +8,10 @@ type GeneReadCounts struct {
 	SampCountk	int
 }
 
-
+// LibReadCountsFromNonzeroGenes filters a slice of genes to those that have
+// positive read count in both the reference and non-reference sample, returning
+// the filtered slice of genes and the total library counts for the reference
+// and non-reference samples.
 func LibReadCountsFromNonzeroGenes(g []GeneReadCounts) (filtg []GeneReadCounts, RefTotal, SampTotal int) {
 	// Go through each gene, and if bot the the reference and non-reference
 	// sample have positive counts, include the gene
